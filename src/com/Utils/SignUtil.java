@@ -1,4 +1,4 @@
-package com.Utils.wx;
+package com.Utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @Date 2018/03
  */
 public class SignUtil {
-    private static String token = "Peng";
+    public static String token = "Peng";
 
     /**
      * 校验签名
@@ -19,7 +19,7 @@ public class SignUtil {
      * @return 布尔值
      */
     public static boolean checkSignature(String signature,String timestamp,String nonce){
-    	System.out.println("已经进了SignUTIL.");
+    	//System.out.println("已经进了SignUTIL.");
         String checktext = null;
         if (null != signature) {
             //对ToKen,timestamp,nonce 按字典排序
@@ -46,7 +46,7 @@ public class SignUtil {
      * @param byteArrays 字符数组
      * @return 字符串
      */
-    private static String byteToStr(byte[] byteArrays){
+    public static String byteToStr(byte[] byteArrays){
         String str = "";
         for (int i = 0; i < byteArrays.length; i++) {
             str += byteToHexStr(byteArrays[i]);
@@ -59,7 +59,7 @@ public class SignUtil {
      * @param myByte 字节
      * @return 字符串
      */
-    private static String byteToHexStr(byte myByte) {
+   public static String byteToHexStr(byte myByte) {
         char[] Digit = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
         char[] tampArr = new char[2];
         tampArr[0] = Digit[(myByte >>> 4) & 0X0F];
@@ -67,5 +67,5 @@ public class SignUtil {
         String str = new String(tampArr);
         return str;
     }
-
+   
 }
