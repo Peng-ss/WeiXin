@@ -8,19 +8,21 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.poi.ddf.EscherColorRef.SysIndexProcedure;
 
 import com.Bean.AccessToken;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 
 public class GetAcess_TokenUtil {
 	
+	public static AccessToken accessToken = null;  
 	
 	public static AccessToken getAccessToken(String appid,String appsecret){
-		System.out.println("已经进来了getAccessToken");
 		if(StringUtils.isEmpty(appid)|| StringUtils.isEmpty(appsecret))  
         {  
             //DEBUG_LOGGER.error("appid or secret is null");  
             return null;  
         }  
-        AccessToken accessToken = new AccessToken();
+        accessToken = new AccessToken();
         try  
         {  
             String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid="
@@ -29,15 +31,18 @@ public class GetAcess_TokenUtil {
             GetMethod getMethod = new GetMethod(url);  
             int execute = httpClient.executeMethod(getMethod);  
             System.out.println("execute:"+execute);  
-            String getResponse = getMethod.getResponseBodyAsString();  
-            accessToken.setToken(getResponse);
+            String getResponse = getMethod.getResponseBodyAsString(); 
+            JSONObject jsonObject = JSON.parseObject(getResponse);
+            accessToken.setAccess_token(jsonObject.getString("access_token"));
+            accessToken.setErrcode(jsonObject.getIntValue("errcode"));
+            accessToken.setErrmsg(jsonObject.getString("errmsg"));
+            accessToken.setExpires_in(jsonObject.getIntValue("expires_in"));
         }  
         catch (IOException e)  
         {  
-           // DEBUG_LOGGER.error("getAccessToken failed,desc:::"+e);  
+            //DEBUG_LOGGER.error("getAccessToken failed,desc:::"+e);  
             e.printStackTrace();  
         }  
-        System.out.println(accessToken);  
         return accessToken;  
     }  
 		

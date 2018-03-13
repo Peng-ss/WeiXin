@@ -19,7 +19,6 @@ public class SignUtil {
      * @return 布尔值
      */
     public static boolean checkSignature(String signature,String timestamp,String nonce){
-    	//System.out.println("已经进了SignUTIL.");
         String checktext = null;
         if (null != signature) {
             //对ToKen,timestamp,nonce 按字典排序

@@ -20,5 +20,6 @@
 	<classpathentry kind="lib" path="WebApp/WEB-INF/lib/log4j-1.2.12.jar"/>
 	<classpathentry kind="lib" path="WebApp/WEB-INF/lib/poi-3.12.jar"/>
 	<classpathentry kind="lib" path="WebApp/WEB-INF/lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="WebApp/WEB-INF/lib/fastjson-1.2.9.jar"/>
 	<classpathentry kind="output" path="WebApp/WEB-INF/classes"/>
 </classpath>
