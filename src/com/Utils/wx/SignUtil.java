@@ -5,11 +5,11 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 /**
- * @Author SPF
- * @Date 2017/6/6
+ * @Author Pss
+ * @Date 2018/03
  */
 public class SignUtil {
-    private static String token = "WinXinSPF";
+    private static String token = "Peng";
 
     /**
      * 校验签名
