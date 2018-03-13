@@ -1,4 +1,4 @@
-package com.servlet;
+package com.Servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServlet;
 
 import org.apache.log4j.Logger;
 
+import com.Thread.TokenThread;
 import com.Utils.GetAcess_TokenUtil;
-import com.thread.TokenThread;
 
 @WebServlet("/GetAccess_Token")
 public class GetAccess_TokenServlet extends HttpServlet {  
