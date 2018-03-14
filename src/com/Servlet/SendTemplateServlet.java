@@ -15,6 +15,9 @@ import com.Bean.TemplateData;
 import com.Utils.OkHttpUtiles;
 import com.alibaba.fastjson.JSON;
 
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+
 
 @WebServlet("/SendTemplate")
 public class SendTemplateServlet extends HttpServlet {
@@ -40,7 +43,8 @@ public class SendTemplateServlet extends HttpServlet {
 		data.put("remark", new Item("欢迎再次购买！", "#173177"));
 		template.setData(data);
 		if (template !=null) {
-			String jsonStr = OkHttpUtiles.getJsonData(url,template);
+			RequestBody body =RequestBody.create(MediaType.parse("application/json"), JSON.toJSONString(template));  
+			String jsonStr = OkHttpUtiles.Post(url,body);
 			System.out.println(jsonStr);
 		    
 		}

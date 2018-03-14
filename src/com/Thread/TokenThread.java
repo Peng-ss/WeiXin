@@ -8,9 +8,9 @@ import com.Utils.GetAcess_TokenUtil;
 public class TokenThread implements Runnable {  
     public static Logger log = Logger.getLogger(TokenThread.class);  
     // 第三方用户唯一凭证  
-    public static String appid = "wxf9615400c4af6007";  
+    public static String appid = "wxf9615400c4af6007"; //测试账号appid
     // 第三方用户唯一凭证密钥  
-    public static String appsecret = "abfdc0f96365d27e3ececb0d6a089ea2";  
+    public static String appsecret = "abfdc0f96365d27e3ececb0d6a089ea2";  //测试账号密码appsecret
     public static AccessToken accessToken = null;  
     @Override
 	public void run() {
