@@ -8,9 +8,9 @@ import com.Utils.GetAcess_TokenUtil;
 public class TokenThread implements Runnable {  
     public static Logger log = Logger.getLogger(TokenThread.class);  
     // 第三方用户唯一凭证  
-    public static String appid = "wx3f4bcc91aaccd4f3";  
+    public static String appid = "wxf9615400c4af6007";  
     // 第三方用户唯一凭证密钥  
-    public static String appsecret = "079810117e7925ff9d6dd15967276c85";  
+    public static String appsecret = "abfdc0f96365d27e3ececb0d6a089ea2";  
     public static AccessToken accessToken = null;  
     @Override
 	public void run() {
@@ -18,9 +18,9 @@ public class TokenThread implements Runnable {
             try {  
                 accessToken = GetAcess_TokenUtil.getAccessToken(appid, appsecret);  
                 log.info(accessToken);
-                if (accessToken.getErrcode() ==0 &&accessToken.getAccess_token()!=null ) {
-                	System.out.println("获取access_token成功，有效时长{"+accessToken.getExpires_in()+"}秒 token:{"+accessToken.getAccess_token()+"}");
-                    log.info("获取access_token成功，有效时长{"+accessToken.getExpires_in()+"}秒 token:{"+accessToken.getAccess_token()+"}");
+                if (accessToken.getErrcode() ==0 && AccessToken.access_token!=null ) {
+                	System.out.println("获取access_token成功，有效时长{"+accessToken.getExpires_in()+"}秒 token:{"+AccessToken.access_token+"}");
+                    log.info("获取access_token成功，有效时长{"+accessToken.getExpires_in()+"}秒 token:{"+AccessToken.access_token+"}");
                     // 休眠7000秒  
                     //下面的线程休眠会抛异常（timeout value is negative）
                     //休眠时间有可能为负数
